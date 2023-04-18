@@ -1,23 +1,23 @@
 import praw
 import pandas as pd
+from progress.bar import Bar
+from progress.spinner import Spinner
 
 
-global badWordsSet
-global subredditsList
 
-def createArrays():
-    global badWordsSet
-    global subredditsList
-    badWordsText = open("./badWords.txt", "r")
-    badWordsSet = set(badWordsText.read().split('\n'))
+def create_bad_words_set():
+    with open("./badWords.txt", "r") as f:
+        bad_words_set = set(f.read().split('\n'))
+    return bad_words_set
 
-    subredditsText = open("./subreddits.txt", "r")
-    subredditsList = subredditsText.read().split('\n')
+def create_subreddits_list():
+    with open("./subreddits.txt", "r") as f:
+        subreddits_list = f.read().split('\n')
+    return subreddits_list
     
     
     
 def search(subredditArray, bad_words, reddit_read_only) -> int:
-
     result = {}
     
     for subredditName in subredditArray:
@@ -30,48 +30,28 @@ def search(subredditArray, bad_words, reddit_read_only) -> int:
             comment_queue = post.comments[:]  # Seed with top-level
             while comment_queue:
                 comment = comment_queue.pop(0)
-                print(comment.body)
                 commentCounter+=1
-
                 commentWordArray = comment.body.split()
                 for word in commentWordArray:
                     if word in bad_words:
                         profanityCounter+=1
-                        
                         break  
 
                 comment_queue.extend(comment.replies)
-
         result[subredditName]=(commentCounter,profanityCounter)        
     return result
     
 
-reddit_read_only = praw.Reddit(client_id="jHaMZuAi8kiEX9erg6yH_w",         # your client id
-                               client_secret="QS6aK093s1gRBjt6XvW6RQ4dSXaySA",      # your client secret
-                               user_agent="True")        # your user agent
- 
- 
+def main():
+    reddit_read_only = praw.Reddit(
+        client_id="jHaMZuAi8kiEX9erg6yH_w",              # your client id
+        client_secret="QS6aK093s1gRBjt6XvW6RQ4dSXaySA",     # your client secret
+        user_agent="True")                                  # your user agent
+
+    subredditsList = create_subreddits_list()
+    badWordsSet = create_bad_words_set()
+    print(search(subredditsList, badWordsSet, reddit_read_only))
 
 
-
-
-
-createArrays()
-
-print(search(subredditsList, badWordsSet, reddit_read_only))
-
-print(badWordsSet)
-
-
-""""
-subreddit = reddit_read_only.subreddit("redditdev")
- 
-# Display the name of the Subreddit
-print("Display Name:", subreddit.display_name)
- 
-# Display the title of the Subreddit
-print("Title:", subreddit.title)
- 
-# Display the description of the Subreddit
-print("Description:", subreddit.description)
-"""""
+if __name__ == "__main__":
+    main()
