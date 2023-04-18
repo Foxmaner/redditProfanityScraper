@@ -26,7 +26,7 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
     commentCounter = 0
     profanityCounter = 0
     subreddit = reddit_read_only.subreddit(subredditName)    
-    for post in subreddit.top(time_filter="year", limit=1):
+    for post in subreddit.top(time_filter="year", limit=5):
             
         post.comments.replace_more(limit=20)
         comment_queue = post.comments[:]  # Seed with top-level
@@ -40,12 +40,12 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
                     break  
 
             comment_queue.extend(comment.replies)
-    result[subredditName]=(commentCounter,profanityCounter)  
+    result[subredditName]=(commentCounter,profanityCounter,str(int((profanityCounter/commentCounter)*100)) + "%")  
     print(result)      
     #return result
 
-def checkThread(thread, threadNr):
-    spinner = MoonSpinner("Thread nr " + str(threadNr) + ": ")
+def checkThread(thread, threadNr, spinner):
+    
     while(thread.is_alive()):
         #print("T is alive:", t1.is_alive())
         #print("T is alive:", t2.is_alive())
@@ -69,14 +69,18 @@ def main():
     i = 0
     threads = []
     statusThreads = []
-    
     for subreddit in subredditsList:
+        
+
         t = threading.Thread(target=search, args=(subreddit, badWordsSet, reddit_read_only))
-        status_thread = threading.Thread(target=checkThread,args=([t,i]))
+        status_thread = threading.Thread(target=checkThread,args=([t,i, MoonSpinner("Thread nr " + str(i) + ": ")]))
+
         threads.append(t)
         statusThreads.append(status_thread)
+        
         t.start()
         status_thread.start()
+
         i +=1
 
     #close all threads 
