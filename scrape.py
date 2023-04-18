@@ -21,15 +21,28 @@ def search(subredditArray, bad_words, reddit_read_only) -> int:
     result = {}
     
     for subredditName in subredditArray:
-        counter = 0
+        commentCounter = 0
+        profanityCounter = 0
         subreddit = reddit_read_only.subreddit(subredditName)    
-        for post in subreddit.top(time_filter="year", limit=100):
-            postArray = post.selftext.split()
-            for word in postArray:
-                if word in bad_words:
-                    counter += 1
-                    break    
-        result[subredditName]=counter        
+        for post in subreddit.top(time_filter="year", limit=1):
+            
+            post.comments.replace_more(limit=20)
+            comment_queue = post.comments[:]  # Seed with top-level
+            while comment_queue:
+                comment = comment_queue.pop(0)
+                print(comment.body)
+                commentCounter+=1
+
+                commentWordArray = comment.body.split()
+                for word in commentWordArray:
+                    if word in bad_words:
+                        profanityCounter+=1
+                        
+                        break  
+
+                comment_queue.extend(comment.replies)
+
+        result[subredditName]=(commentCounter,profanityCounter)        
     return result
     
 
