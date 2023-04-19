@@ -10,7 +10,9 @@ pip install -r requirements.txt
 ## License
 
 This project is licensed under Bandbredds Banditerna AB @2023
-Chief           -     Mervan Palmér
-HR              -     Gabriel Matsson
-Data Collector  -     Björn Edblom
-Beer & Bar      -     Eskil Brännerud
+| Role | Name |
+| --- | --- |
+| Chief | Mervan Palmér |
+| HR | Gabriel Matsson |
+| Data Collector | Björn Edblom |
+| Beer & Bar | Eskil Brännerud |
