@@ -54,6 +54,35 @@ def checkThread(thread, threadNr, spinner):
     spinner.finish()
     return
 
+"""
+def get_data(subreddit_name, sort_type, limit, reddit):
+    subreddit = reddit.subreddit(subreddit_name)
+    if sort_type == "new":
+        posts = subreddit.new(limit=limit)
+        comments = subreddit.comments(sort=sort_type, limit=limit)
+    elif sort_type == "hot":
+        posts = subreddit.hot(limit=limit)
+        comments = subreddit.comments(sort=sort_type, limit=limit)
+    elif sort_type == "top":
+        posts = subreddit.top(limit=limit)
+        comments = subreddit.comments(sort=sort_type, limit=limit)
+    elif sort_type == "controversial":
+        posts = subreddit.controversial(limit=limit)
+        comments = subreddit.comments(sort=sort_type, limit=limit)
+    elif sort_type == "random":
+        posts = subreddit.random_rising(limit=limit)
+        comments = subreddit.comments(limit=limit)
+    else:
+        print("Invalid sort type")
+        return
+
+    for post in posts:
+        print(post.title)
+    for comment in comments:
+        print(comment.body)
+"""
+
+
 
 def main():
     reddit_read_only = praw.Reddit(
@@ -90,7 +119,13 @@ def main():
         t.join()    
 
     
-
+    """
+    get_data("AskReddit", "new", 10, reddit_read_only)
+    get_data("AskReddit", "hot", 10, reddit_read_only)
+    get_data("AskReddit", "top", 10, reddit_read_only)
+    get_data("AskReddit", "controversial", 10, reddit_read_only)
+    get_data("AskReddit", "random", 10, reddit_read_only)
+    """
  
     
     print("Program complete!")
