@@ -4,6 +4,7 @@ from progress.bar import Bar
 from progress.spinner import MoonSpinner
 import threading
 import time
+import matplotlib.pyplot as plt
 
 
 
@@ -40,7 +41,7 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
                     break  
 
             comment_queue.extend(comment.replies)
-    result[subredditName]=(commentCounter,profanityCounter,str(int((profanityCounter/commentCounter)*100)) + "%")  
+    result[subredditName]=(commentCounter, profanityCounter, str(int((profanityCounter/commentCounter)*100)) + "%")  
     print(result)      
     #return result
 
@@ -54,7 +55,7 @@ def checkThread(thread, threadNr, spinner):
     spinner.finish()
     return
 
-"""
+
 def get_data(subreddit_name, sort_type, limit, reddit):
     subreddit = reddit.subreddit(subreddit_name)
     if sort_type == "new":
@@ -80,7 +81,36 @@ def get_data(subreddit_name, sort_type, limit, reddit):
         print(post.title)
     for comment in comments:
         print(comment.body)
-"""
+
+def graph(commentCounter, profanityCounter):
+
+    # line graph
+    plt.plot(commentCounter, profanityCounter)
+    plt.xlabel('commentCounter')
+    plt.ylabel('profanityCounter')
+    plt.title('Line Graph')
+    plt.savefig('graphs/line.pdf')
+    plt.show()
+
+    # Bar graph
+    plt.bar(commentCounter, profanityCounter)
+    plt.xlabel('commentCounter')
+    plt.ylabel('profanityCounter')
+    plt.title('Bar Grapgh')
+    plt.savefig('graphs/bar.pdf')
+    plt.show()
+
+    # Pie chart
+    labels = ['commentCounter', 'profanityCounter']
+    sizes = [sum(commentCounter), sum(profanityCounter)]
+    colors = ['yellowgreen', 'gold']
+    plt.pie(sizes, labels=labels, colors=colors,
+            autopct='%1.1f%%', startangle=140)
+    plt.axis('equal')
+    plt.title('Pie Chart')
+    plt.savefig('graphs/pie.pdf')
+    plt.show()
+
 
 
 
@@ -119,13 +149,13 @@ def main():
         t.join()    
 
     
-    """
-    get_data("AskReddit", "new", 10, reddit_read_only)
-    get_data("AskReddit", "hot", 10, reddit_read_only)
-    get_data("AskReddit", "top", 10, reddit_read_only)
-    get_data("AskReddit", "controversial", 10, reddit_read_only)
-    get_data("AskReddit", "random", 10, reddit_read_only)
-    """
+    
+    #get_data("AskReddit", "new", 10, reddit_read_only)
+    #get_data("AskReddit", "hot", 10, reddit_read_only)
+    #get_data("AskReddit", "top", 10, reddit_read_only)
+    #get_data("AskReddit", "controversial", 10, reddit_read_only)
+    #get_data("AskReddit", "random", 10, reddit_read_only)
+   
  
     
     print("Program complete!")
