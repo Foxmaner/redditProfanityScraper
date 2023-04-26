@@ -4,6 +4,7 @@ import time
 import matplotlib.pyplot as plt
 from progress.bar import Bar
 from progress.spinner import MoonSpinner
+import numpy as np
 
 result = {}
 
@@ -84,8 +85,9 @@ def get_data(subreddit_name, sort_type, limit, reddit):
 def graph(subredditName, commentCounter, profanityCounter, percentage):
 
     # line graph
-    plt.plot(commentCounter, profanityCounter, color='red', label='Profanity')
-    plt.plot(commentCounter, commentCounter, color='blue', label='Comments')
+    """
+    plt.plot(commentCounter, profanityCounter, color='red', label='Profanity', linewidth=2, linestyle='-')
+    plt.plot(commentCounter, commentCounter, color='blue', label='Comments', linewidth=2, linestyle='-')
     plt.xlabel('Amount of comments', fontsize=14)
     plt.ylabel('Amount of profanity', fontsize=14)
     plt.title(subredditName, fontsize=16)
@@ -95,36 +97,59 @@ def graph(subredditName, commentCounter, profanityCounter, percentage):
     plt.text(0.95, 0.95, f"Profanity percentage: {percentage}", ha='right', va='top', transform=plt.gca().transAxes)
     plt.savefig(f'graphs/line/{subredditName}.pdf')
     #clear
-    plt.clf()
+    #plt.clf()"""
 
-    # Bar graph
-    plt.bar(commentCounter, profanityCounter, color='red')
-    plt.xlabel('Amount of comments', fontsize=14)
-    plt.ylabel('Amount of profanity', fontsize=14)
-    plt.title(subredditName, fontsize=16)
-    plt.grid(True)
-    # Add the percentage value to the plot
-    plt.text(0.95, 0.95, f"Profanity percentage: {percentage}", ha='right', va='top', transform=plt.gca().transAxes)
-    plt.savefig(f'graphs/bar/{subredditName}.pdf')
-    #clear
-    plt.clf()
-
+   
     # Pie chart
-    labels = ['Amount of comments', 'Amount of profanity']
+    labels = ['Comments without profanity', 'Amount of profanity']
     sizes = [commentCounter, profanityCounter]
     colors = ['yellowgreen', 'gold']
+    total = sum(sizes)
     plt.pie(sizes, labels=labels, colors=colors,
-            autopct='%d%%', startangle=140)
+            autopct=lambda x: f"{int(round(x * total / 100.0))}", startangle=140)
     plt.axis('equal')
     plt.title(subredditName, fontsize=16)
     plt.tight_layout()
     # Add the percentage value to the plot
-    plt.text(0.99, 0.99, f"Profanity percentage: {percentage}", ha='right', va='top', transform=plt.gca().transAxes)
+    plt.text(0.28, 1, f"Profanity percentage: {percentage}", ha='right', va='top', transform=plt.gca().transAxes)
     plt.savefig(f'graphs/pie/{subredditName}.pdf')
     plt.show()
     #clear
     plt.clf()
+    
+def generate_bar_graph():
+    commentCounter = []
+    profanityCounter = []
+    percentages = []
+    labels = []
+    for key, value in result.items():
+        labels.append(key)
+        commentCounter.append(value[0])
+        profanityCounter.append(value[1])
+        percentages.append(value[2])
 
+    # Bar graph
+    x = np.arange(len(labels))
+    width = 0.35  # the width of the bars
+
+    fig, ax = plt.subplots()
+    rects1 = ax.bar(x - width/2, commentCounter, width, label='Comments')
+    rects2 = ax.bar(x + width/2, profanityCounter, width, label='Profanity')
+
+    # Add some text for labels, title and custom x-axis tick labels, etc.
+    ax.set_ylabel('Amount')
+    ax.set_xlabel('Subreddit')
+    ax.set_title('Profanity and Comments per Subreddit')
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.legend()
+
+    # Add the percentage values to the plot
+    for i, percentage in enumerate(percentages):
+        plt.text(i, 0.5, f"Profanity percentage: {percentage}", ha='center', va='top')
+
+    fig.tight_layout()
+    plt.show()
 
 
 def main():
@@ -137,7 +162,7 @@ def main():
     badWordsSet = create_bad_words_set()
     #print(search(subredditsList, badWordsSet, reddit_read_only))
 
-    #graph("test", 1, 2, "50")
+    #graph("test", 20, 10, "50%")
 
     #init values
     i = 0
@@ -172,8 +197,10 @@ def main():
     #get_data("AskReddit", "random", 10, reddit_read_only)
    
     print(result)
-    for key, value in result.items():
-        graph(key, value[0], value[1], value[2])
+
+    #for key, value in result.items():
+    #    graph(key, value[0], value[1], value[2])
+    generate_bar_graph()
     
     print("Program complete!")
 
