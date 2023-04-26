@@ -1,12 +1,11 @@
 import praw
-import pandas as pd
-from progress.bar import Bar
-from progress.spinner import MoonSpinner
 import threading
 import time
 import matplotlib.pyplot as plt
+from progress.bar import Bar
+from progress.spinner import MoonSpinner
 
-
+result = {}
 
 def create_bad_words_set():
     with open("./badWords.txt", "r") as f:
@@ -21,7 +20,7 @@ def create_subreddits_list():
     
     
 def search(subredditName, bad_words, reddit_read_only) -> int:
-    result = {}
+    global result
     
     
     commentCounter = 0
@@ -29,7 +28,7 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
     subreddit = reddit_read_only.subreddit(subredditName)    
     for post in subreddit.top(time_filter="year", limit=5):
             
-        post.comments.replace_more(limit=20)
+        post.comments.replace_more(limit=5)
         comment_queue = post.comments[:]  # Seed with top-level
         while comment_queue:
             comment = comment_queue.pop(0)
@@ -41,9 +40,10 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
                     break  
 
             comment_queue.extend(comment.replies)
-    result[subredditName]=(commentCounter, profanityCounter, str(int((profanityCounter/commentCounter)*100)) + "%")  
-    print(result)      
-    #return result
+    result[subredditName]=(commentCounter, profanityCounter, str(int((profanityCounter/commentCounter)*100)) + "%")
+    #graph(subredditName, commentCounter, profanityCounter)
+    #print(result)      
+    
 
 def checkThread(thread, threadNr, spinner):
     
@@ -53,7 +53,6 @@ def checkThread(thread, threadNr, spinner):
         spinner.next()
         time.sleep(1)
     spinner.finish()
-    return
 
 
 def get_data(subreddit_name, sort_type, limit, reddit):
@@ -82,35 +81,49 @@ def get_data(subreddit_name, sort_type, limit, reddit):
     for comment in comments:
         print(comment.body)
 
-def graph(commentCounter, profanityCounter):
+def graph(subredditName, commentCounter, profanityCounter, percentage):
 
     # line graph
-    plt.plot(commentCounter, profanityCounter)
-    plt.xlabel('commentCounter')
-    plt.ylabel('profanityCounter')
-    plt.title('Line Graph')
-    plt.savefig('graphs/line.pdf')
-    plt.show()
+    plt.plot(commentCounter, profanityCounter, color='red', label='Profanity')
+    plt.plot(commentCounter, commentCounter, color='blue', label='Comments')
+    plt.xlabel('Amount of comments', fontsize=14)
+    plt.ylabel('Amount of profanity', fontsize=14)
+    plt.title(subredditName, fontsize=16)
+    plt.grid(True)
+    plt.legend(fontsize=12)
+    # Add the percentage value to the plot
+    plt.text(0.95, 0.95, f"Profanity percentage: {percentage}", ha='right', va='top', transform=plt.gca().transAxes)
+    plt.savefig(f'graphs/line/{subredditName}.pdf')
+    #clear
+    plt.clf()
 
     # Bar graph
-    plt.bar(commentCounter, profanityCounter)
-    plt.xlabel('commentCounter')
-    plt.ylabel('profanityCounter')
-    plt.title('Bar Grapgh')
-    plt.savefig('graphs/bar.pdf')
-    plt.show()
+    plt.bar(commentCounter, profanityCounter, color='red')
+    plt.xlabel('Amount of comments', fontsize=14)
+    plt.ylabel('Amount of profanity', fontsize=14)
+    plt.title(subredditName, fontsize=16)
+    plt.grid(True)
+    # Add the percentage value to the plot
+    plt.text(0.95, 0.95, f"Profanity percentage: {percentage}", ha='right', va='top', transform=plt.gca().transAxes)
+    plt.savefig(f'graphs/bar/{subredditName}.pdf')
+    #clear
+    plt.clf()
 
     # Pie chart
-    labels = ['commentCounter', 'profanityCounter']
-    sizes = [sum(commentCounter), sum(profanityCounter)]
+    labels = ['Amount of comments', 'Amount of profanity']
+    sizes = [commentCounter, profanityCounter]
     colors = ['yellowgreen', 'gold']
     plt.pie(sizes, labels=labels, colors=colors,
-            autopct='%1.1f%%', startangle=140)
+            autopct='%d%%', startangle=140)
     plt.axis('equal')
-    plt.title('Pie Chart')
-    plt.savefig('graphs/pie.pdf')
+    plt.title(subredditName, fontsize=16)
+    plt.tight_layout()
+    # Add the percentage value to the plot
+    plt.text(0.99, 0.99, f"Profanity percentage: {percentage}", ha='right', va='top', transform=plt.gca().transAxes)
+    plt.savefig(f'graphs/pie/{subredditName}.pdf')
     plt.show()
-
+    #clear
+    plt.clf()
 
 
 
@@ -123,7 +136,9 @@ def main():
     subredditsList = create_subreddits_list()
     badWordsSet = create_bad_words_set()
     #print(search(subredditsList, badWordsSet, reddit_read_only))
-    
+
+    #graph("test", 1, 2, "50")
+
     #init values
     i = 0
     threads = []
@@ -132,7 +147,7 @@ def main():
         
 
         t = threading.Thread(target=search, args=(subreddit, badWordsSet, reddit_read_only))
-        status_thread = threading.Thread(target=checkThread,args=([t,i, MoonSpinner("Thread nr " + str(i) + ": ")]))
+        status_thread = threading.Thread(target=checkThread, args=([t, i, MoonSpinner("Thread nr " + str(i) + ": ")]))
 
         threads.append(t)
         statusThreads.append(status_thread)
@@ -156,7 +171,9 @@ def main():
     #get_data("AskReddit", "controversial", 10, reddit_read_only)
     #get_data("AskReddit", "random", 10, reddit_read_only)
    
- 
+    print(result)
+    for key, value in result.items():
+        graph(key, value[0], value[1], value[2])
     
     print("Program complete!")
 
