@@ -7,6 +7,7 @@ from progress.spinner import MoonSpinner
 import numpy as np
 
 result = {}
+subreddit_profanity_dict = {}
 
 def create_bad_words_set():
     with open("./badWords.txt", "r") as f:
@@ -22,8 +23,9 @@ def create_subreddits_list():
     
 def search(subredditName, bad_words, reddit_read_only) -> int:
     global result
+    global subreddit_profanity_dict
     
-    
+    profanity_dict = {}
     commentCounter = 0
     profanityCounter = 0
     subreddit = reddit_read_only.subreddit(subredditName)    
@@ -38,12 +40,16 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
             for word in commentWordArray:
                 if word in bad_words:
                     profanityCounter+=1
+                    if word not in profanity_dict:
+                        profanity_dict[word] = 1
+                    else:
+                        profanity_dict[word] += 1
                     break  
-
             comment_queue.extend(comment.replies)
+    subreddit_profanity_dict[subredditName] = profanity_dict
     result[subredditName]=(commentCounter, profanityCounter, str(int((profanityCounter/commentCounter)*100)) + "%")
-    #graph(subredditName, commentCounter, profanityCounter)
     #print(result)      
+    print(subreddit_profanity_dict)
     
 
 def checkThread(thread, threadNr, spinner):
@@ -118,6 +124,10 @@ def graph(subredditName, commentCounter, profanityCounter, percentage):
     plt.clf()
     
 def generate_bar_graph():
+    global result
+    # Sort the lists based on percentages in reverse order
+    result = dict(sorted(result.items(), key=lambda x: float(x[1][2].strip('%'))))
+
     commentCounter = []
     profanityCounter = []
     percentages = []
@@ -127,6 +137,8 @@ def generate_bar_graph():
         commentCounter.append(value[0])
         profanityCounter.append(value[1])
         percentages.append(value[2])
+
+    print(percentages)
 
     # Bar graph
     x = np.arange(len(labels))
@@ -138,7 +150,7 @@ def generate_bar_graph():
 
     # Add some text for labels, title and custom x-axis tick labels, etc.
     ax.set_ylabel('Amount')
-    ax.set_xlabel('Subreddit')
+    #ax.set_xlabel('Subreddit')
     ax.set_title('Profanity and Comments per Subreddit')
     ax.set_xticks(x)
     ax.set_xticklabels(labels)
@@ -146,10 +158,11 @@ def generate_bar_graph():
 
     # Add the percentage values to the plot
     for i, percentage in enumerate(percentages):
-        plt.text(i, 0.5, f"Profanity percentage: {percentage}", ha='center', va='top')
+        plt.text(i, -5, f"{percentage}", ha='center', va='bottom', fontsize=10)
 
     fig.tight_layout()
     plt.show()
+    plt.savefig('graphs/BigBar.pdf')
 
 
 def main():
@@ -197,9 +210,7 @@ def main():
     #get_data("AskReddit", "random", 10, reddit_read_only)
    
     print(result)
-
-    #for key, value in result.items():
-    #    graph(key, value[0], value[1], value[2])
+    print(subreddit_profanity_dict)
     generate_bar_graph()
     
     print("Program complete!")
