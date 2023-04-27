@@ -8,6 +8,7 @@ import numpy as np
 
 result = {}
 subreddit_profanity_dict = {}
+subredditFile = "subreddits"
 
 def create_bad_words_set():
     with open("./badWords.txt", "r") as f:
@@ -15,7 +16,8 @@ def create_bad_words_set():
     return bad_words_set
 
 def create_subreddits_list():
-    with open("./subreddits.txt", "r") as f:
+    path = "./subreddits/" + subredditFile  + ".txt"
+    with open(path, "r") as f:
         subreddits_list = f.read().split('\n')
     return subreddits_list
     
