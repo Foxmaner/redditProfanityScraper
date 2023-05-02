@@ -31,7 +31,7 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
     commentCounter = 0
     profanityCounter = 0
     subreddit = reddit_read_only.subreddit(subredditName)    
-    for post in subreddit.top(time_filter="year", limit=5):
+    for post in subreddit.controversial(time_filter="year", limit=20):
             
         post.comments.replace_more(limit=5)
         comment_queue = post.comments[:]  # Seed with top-level
@@ -51,7 +51,7 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
     subreddit_profanity_dict[subredditName] = profanity_dict
     result[subredditName]=(commentCounter, profanityCounter, str(int((profanityCounter/commentCounter)*100)) + "%")
     #print(result)      
-    print(subreddit_profanity_dict)
+    
     
 
 def checkThread(thread, threadNr, spinner):
@@ -91,22 +91,6 @@ def get_data(subreddit_name, sort_type, limit, reddit):
         print(comment.body)
 
 def graph(subredditName, commentCounter, profanityCounter, percentage):
-
-    # line graph
-    """
-    plt.plot(commentCounter, profanityCounter, color='red', label='Profanity', linewidth=2, linestyle='-')
-    plt.plot(commentCounter, commentCounter, color='blue', label='Comments', linewidth=2, linestyle='-')
-    plt.xlabel('Amount of comments', fontsize=14)
-    plt.ylabel('Amount of profanity', fontsize=14)
-    plt.title(subredditName, fontsize=16)
-    plt.grid(True)
-    plt.legend(fontsize=12)
-    # Add the percentage value to the plot
-    plt.text(0.95, 0.95, f"Profanity percentage: {percentage}", ha='right', va='top', transform=plt.gca().transAxes)
-    plt.savefig(f'graphs/line/{subredditName}.pdf')
-    #clear
-    #plt.clf()"""
-
    
     # Pie chart
     labels = ['Comments without profanity', 'Amount of profanity']
@@ -140,7 +124,7 @@ def generate_bar_graph():
         profanityCounter.append(value[1])
         percentages.append(value[2])
 
-    print(percentages)
+    #print(percentages)
 
     # Bar graph
     x = np.arange(len(labels))
@@ -196,6 +180,8 @@ def main():
         status_thread.start()
 
         i +=1
+
+    print(subreddit_profanity_dict)
 
     #close all threads 
     for t in threads:
