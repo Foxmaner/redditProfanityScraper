@@ -8,7 +8,8 @@ import numpy as np
 
 result = {}
 subreddit_profanity_dict = {}
-subredditFile = "subreddits"
+#Change this depending on what subreddit categori you wanna run
+subredditFile = "Mobile Games"
 
 def create_bad_words_set():
     with open("./badWords.txt", "r") as f:
@@ -31,9 +32,9 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
     commentCounter = 0
     profanityCounter = 0
     subreddit = reddit_read_only.subreddit(subredditName)    
-    for post in subreddit.controversial(time_filter="year", limit=20):
+    for post in subreddit.hot(limit=10):
             
-        post.comments.replace_more(limit=5)
+        post.comments.replace_more(limit=None)
         comment_queue = post.comments[:]  # Seed with top-level
         while comment_queue:
             comment = comment_queue.pop(0)
@@ -64,32 +65,7 @@ def checkThread(thread, threadNr, spinner):
     spinner.finish()
 
 
-def get_data(subreddit_name, sort_type, limit, reddit):
-    subreddit = reddit.subreddit(subreddit_name)
-    if sort_type == "new":
-        posts = subreddit.new(limit=limit)
-        comments = subreddit.comments(sort=sort_type, limit=limit)
-    elif sort_type == "hot":
-        posts = subreddit.hot(limit=limit)
-        comments = subreddit.comments(sort=sort_type, limit=limit)
-    elif sort_type == "top":
-        posts = subreddit.top(limit=limit)
-        comments = subreddit.comments(sort=sort_type, limit=limit)
-    elif sort_type == "controversial":
-        posts = subreddit.controversial(limit=limit)
-        comments = subreddit.comments(sort=sort_type, limit=limit)
-    elif sort_type == "random":
-        posts = subreddit.random_rising(limit=limit)
-        comments = subreddit.comments(limit=limit)
-    else:
-        print("Invalid sort type")
-        return
-
-    for post in posts:
-        print(post.title)
-    for comment in comments:
-        print(comment.body)
-
+"""
 def graph(subredditName, commentCounter, profanityCounter, percentage):
    
     # Pie chart
@@ -107,7 +83,7 @@ def graph(subredditName, commentCounter, profanityCounter, percentage):
     plt.savefig(f'graphs/pie/{subredditName}.pdf')
     plt.show()
     #clear
-    plt.clf()
+    #plt.clf()"""
     
 def generate_bar_graph():
     global result
@@ -137,18 +113,20 @@ def generate_bar_graph():
     # Add some text for labels, title and custom x-axis tick labels, etc.
     ax.set_ylabel('Amount')
     #ax.set_xlabel('Subreddit')
-    ax.set_title('Profanity and Comments per Subreddit')
+    ax.set_title(subredditFile)
     ax.set_xticks(x)
-    ax.set_xticklabels(labels)
+    ax.set_xticklabels(labels, fontsize=10)
     ax.legend()
 
     # Add the percentage values to the plot
     for i, percentage in enumerate(percentages):
-        plt.text(i, -5, f"{percentage}", ha='center', va='bottom', fontsize=10)
+        plt.text(i, 1, f"{percentage}", ha='center', va='bottom', fontsize=20)
+
 
     fig.tight_layout()
+    print("saves!")
+    plt.savefig('graphs/{}.pdf'.format(subredditFile))
     plt.show()
-    plt.savefig('graphs/BigBar.pdf')
 
 
 def main():
@@ -189,13 +167,6 @@ def main():
     for t in statusThreads:
         t.join()    
 
-    
-    
-    #get_data("AskReddit", "new", 10, reddit_read_only)
-    #get_data("AskReddit", "hot", 10, reddit_read_only)
-    #get_data("AskReddit", "top", 10, reddit_read_only)
-    #get_data("AskReddit", "controversial", 10, reddit_read_only)
-    #get_data("AskReddit", "random", 10, reddit_read_only)
    
     print(result)
     print(subreddit_profanity_dict)
