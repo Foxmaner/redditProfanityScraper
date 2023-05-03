@@ -1,5 +1,5 @@
 overwatch
-Csgo
+GlobalOffensive
 CallOfDuty
 Battlefield
 Apexlegends

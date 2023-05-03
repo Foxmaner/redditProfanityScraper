@@ -1,0 +1,99 @@
+GuildWars: (249, 16, '6%')
+blackdesertonline: (339, 20, '5%')
+ffxiv: (402, 15, '3%')
+wow: (698, 28, '4%')
+pathofexile: (1886, 104, '5%')
+
+GuildWars:
+	period: 2
+	necro: 6
+	dick: 1
+	fuck: 1
+	goddamn: 2
+	fucked: 1
+	ass: 1
+	stupid: 2
+
+blackdesertonline:
+	damn: 1
+	fucking: 4
+	shit: 3
+	fuck: 2
+	suck: 1
+	stupid: 1
+	blow: 1
+	jackshit: 2
+	dick: 1
+	gay: 1
+	fuckable: 1
+	virgin: 1
+	bitches: 1
+
+ffxiv:
+	ass: 3
+	dumb: 1
+	pot: 2
+	fucking: 1
+	porn: 1
+	tits: 1
+	booty: 2
+	fucks: 1
+	boobs: 2
+	shit: 1
+
+wow:
+	idiot: 1
+	shit: 4
+	prick: 1
+	murder: 1
+	fuck: 2
+	period: 1
+	sexy: 1
+	racial: 1
+	crap: 1
+	asses: 1
+	fucking: 2
+	damn: 1
+	gross: 1
+	fuckin: 1
+	goddamn: 1
+	dumb: 3
+	suck: 2
+	stupid: 2
+	ass: 1
+
+pathofexile:
+	dumb: 4
+	blow: 4
+	crack: 1
+	crap: 3
+	shit: 21
+	suck: 2
+	minority: 2
+	spit: 1
+	killer: 1
+	damn: 2
+	necro: 1
+	fuck: 6
+	cock: 1
+	conservative: 1
+	fucking: 18
+	fucked: 1
+	fucks: 2
+	barf: 1
+	shitty: 7
+	bullshit: 3
+	balls: 3
+	cemetery: 2
+	fucker: 1
+	stupid: 3
+	ass: 3
+	shitting: 2
+	piss: 1
+	drug: 1
+	crappy: 1
+	sob: 1
+	period: 2
+	buried: 1
+	bigass: 1
+

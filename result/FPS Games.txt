@@ -1,0 +1,128 @@
+Battlefield: (132, 12, '9%')
+CallOfDuty: (162, 10, '6%')
+GlobalOffensive: (870, 83, '9%')
+overwatch: (1523, 138, '9%')
+Apexlegends: (1561, 143, '9%')
+
+Battlefield:
+	shit: 2
+	fucking: 3
+	damn: 2
+	suck: 1
+	shitty: 1
+	bitches: 1
+	fuck: 2
+
+CallOfDuty:
+	fuck: 2
+	fucking: 4
+	murder: 1
+	bullshit: 1
+	stupid: 1
+	ass: 1
+
+GlobalOffensive:
+	fraud: 1
+	dick: 1
+	fuck: 9
+	sexual: 1
+	fucked: 4
+	shitty: 3
+	shit: 19
+	stupid: 7
+	racist: 2
+	bullshit: 2
+	fucking: 9
+	period: 1
+	minority: 1
+	porn: 3
+	fuckers: 2
+	dumb: 3
+	butt: 1
+	christ: 1
+	dumbass: 1
+	ass: 2
+	asses: 1
+	piss: 1
+	damn: 2
+	torture: 1
+	suck: 2
+	hostage: 1
+	cum: 1
+	radical: 1
+
+overwatch:
+	racist: 3
+	ass: 9
+	fuck: 20
+	shitty: 1
+	fucked: 1
+	stupid: 11
+	dumb: 4
+	fucker: 1
+	murder: 4
+	fore: 1
+	damn: 6
+	sexually: 1
+	suck: 2
+	shit: 20
+	fucking: 22
+	motherfucker: 1
+	boner: 1
+	dick: 1
+	goddamn: 1
+	balls: 3
+	meth: 1
+	devil: 4
+	fuckin: 2
+	bullshit: 2
+	piss: 1
+	dumbass: 1
+	shitter: 1
+	bitching: 1
+	nasty: 1
+	dink: 1
+	fat: 1
+	nazi: 2
+	shits: 1
+	tits: 1
+	nude: 1
+	killer: 2
+	idiot: 1
+	asshole: 1
+
+Apexlegends:
+	fuck: 11
+	fucked: 4
+	shit: 27
+	ass: 3
+	fucking: 15
+	suck: 7
+	damn: 10
+	laid: 2
+	bitch: 7
+	buried: 1
+	shitty: 12
+	crappy: 4
+	dumb: 3
+	shitting: 5
+	stupid: 7
+	blow: 2
+	crap: 3
+	bullshit: 2
+	spit: 1
+	minority: 2
+	murder: 1
+	suicide: 1
+	jeez: 1
+	shite: 1
+	idiot: 1
+	bitching: 2
+	arse: 1
+	gross: 1
+	dick: 2
+	queef: 1
+	shag: 1
+	sexual: 1
+	assholes: 1
+

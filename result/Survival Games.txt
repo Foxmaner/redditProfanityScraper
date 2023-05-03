@@ -1,0 +1,75 @@
+TheForest: (137, 5, '3%')
+playark: (76, 0, '0%')
+playrust: (481, 60, '12%')
+dayz: (542, 27, '4%')
+subnautica: (713, 23, '3%')
+
+TheForest:
+	crap: 1
+	shit: 2
+	pot: 2
+
+playark:
+
+playrust:
+	damn: 2
+	feces: 1
+	crap: 2
+	fucks: 2
+	shit: 15
+	bitching: 1
+	bullshit: 1
+	crappy: 1
+	boonie: 1
+	dumb: 6
+	fraud: 1
+	racist: 2
+	tits: 1
+	bitch: 2
+	fucking: 5
+	dumbass: 2
+	ass: 2
+	fucked: 3
+	suck: 3
+	shitter: 1
+	balls: 1
+	idiot: 1
+	fuck: 2
+	scum: 1
+	loser: 1
+
+dayz:
+	laid: 2
+	piss: 1
+	shits: 1
+	damn: 1
+	shit: 5
+	fucking: 3
+	stupid: 1
+	shitty: 1
+	fuck: 1
+	raped: 1
+	fucked: 1
+	dumb: 1
+	pot: 3
+	shitting: 1
+	weenie: 1
+	butt: 1
+	spit: 1
+	poop: 1
+
+subnautica:
+	shitty: 1
+	shit: 6
+	fucking: 1
+	damn: 1
+	fat: 1
+	fuck: 4
+	ass: 2
+	murder: 1
+	dumb: 1
+	crap: 2
+	crack: 1
+	stupid: 1
+	blow: 1
+

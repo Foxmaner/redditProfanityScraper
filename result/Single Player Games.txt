@@ -1,0 +1,152 @@
+darksouls: (185, 11, '5%')
+Fallout: (866, 97, '11%')
+HarryPotterGame: (1018, 34, '3%')
+skyrim: (1668, 214, '12%')
+Witcher3: (2527, 107, '4%')
+
+darksouls:
+	shit: 1
+	ass: 3
+	fucking: 2
+	asshole: 1
+	idiot: 1
+	fat: 1
+	dumb: 1
+	buried: 1
+
+Fallout:
+	asses: 1
+	blow: 5
+	hostage: 2
+	fuck: 7
+	shit: 19
+	asshole: 3
+	bullshit: 2
+	pot: 2
+	fucking: 17
+	dumb: 6
+	crappy: 1
+	nasty: 1
+	prick: 1
+	shitting: 3
+	suck: 4
+	minority: 1
+	ass: 6
+	stupid: 2
+	shitty: 1
+	bitching: 1
+	laid: 2
+	fat: 1
+	murder: 2
+	damn: 2
+	fucked: 1
+	naked: 2
+	shits: 1
+	dumbass: 1
+
+HarryPotterGame:
+	damn: 4
+	bullshit: 1
+	ass: 2
+	bitch: 1
+	fuck: 4
+	asshole: 1
+	balls: 1
+	torture: 1
+	shit: 8
+	stupid: 2
+	piss: 1
+	suck: 1
+	fucking: 3
+	poverty: 1
+	blow: 1
+	crap: 1
+	loser: 1
+
+skyrim:
+	racist: 57
+	period: 5
+	torture: 5
+	shithead: 1
+	fuck: 13
+	crap: 2
+	murder: 6
+	nazi: 2
+	damn: 15
+	stupid: 7
+	fucking: 13
+	rape: 1
+	shit: 17
+	suck: 2
+	dumb: 7
+	killer: 3
+	dick: 2
+	assholes: 3
+	shits: 2
+	racial: 4
+	fuckin: 1
+	ethnic: 1
+	sex: 1
+	asshole: 1
+	fucked: 4
+	necro: 1
+	ass: 3
+	bullshit: 5
+	loser: 1
+	strapon: 1
+	bitch: 4
+	joint: 1
+	banging: 1
+	drug: 1
+	murderer: 1
+	nasty: 1
+	shitty: 4
+	hobo: 1
+	shitting: 1
+	dumbass: 1
+	radical: 1
+	slant: 1
+	slave: 1
+	idiot: 1
+	conservative: 1
+	bitches: 1
+	arse: 1
+	pot: 1
+	penis: 1
+	motherfucker: 1
+	naked: 1
+	blow: 1
+
+Witcher3:
+	shitty: 3
+	fuck: 12
+	fucking: 13
+	shit: 18
+	period: 2
+	devil: 1
+	buried: 2
+	goddamn: 1
+	fucked: 10
+	crappy: 2
+	fucker: 1
+	damn: 9
+	scrotum: 1
+	crap: 5
+	sex: 2
+	blow: 2
+	arse: 1
+	fucks: 1
+	dumb: 2
+	swallow: 1
+	idiot: 2
+	cemetery: 1
+	stupid: 6
+	suck: 2
+	fuckin: 1
+	mofo: 1
+	ass: 1
+	turd: 1
+	jeez: 1
+	laid: 1
+	bitch: 1
+

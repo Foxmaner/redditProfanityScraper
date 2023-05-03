@@ -9,7 +9,7 @@ import numpy as np
 result = {}
 subreddit_profanity_dict = {}
 #Change this depending on what subreddit categori you wanna run
-subredditFile = "Mobile Games"
+subredditFile = "Alternative Reddits To League"
 
 def create_bad_words_set():
     with open("./badWords.txt", "r") as f:
@@ -49,13 +49,14 @@ def search(subredditName, bad_words, reddit_read_only) -> int:
                         profanity_dict[word] += 1
                     break  
             comment_queue.extend(comment.replies)
+   
     subreddit_profanity_dict[subredditName] = profanity_dict
     result[subredditName]=(commentCounter, profanityCounter, str(int((profanityCounter/commentCounter)*100)) + "%")
     #print(result)      
     
     
 
-def checkThread(thread, threadNr, spinner):
+def checkThread(thread, spinner):
     
     while(thread.is_alive()):
         #print("T is alive:", t1.is_alive())
@@ -63,7 +64,6 @@ def checkThread(thread, threadNr, spinner):
         spinner.next()
         time.sleep(1)
     spinner.finish()
-
 
 """
 def graph(subredditName, commentCounter, profanityCounter, percentage):
@@ -115,19 +115,43 @@ def generate_bar_graph():
     #ax.set_xlabel('Subreddit')
     ax.set_title(subredditFile)
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=10)
+    ax.set_xticklabels(labels, fontsize=9)
     ax.legend()
 
     # Add the percentage values to the plot
     for i, percentage in enumerate(percentages):
-        plt.text(i, 1, f"{percentage}", ha='center', va='bottom', fontsize=20)
+        plt.text(i, 1, f"{percentage}", ha='center', va='bottom', fontsize=15)
 
 
     fig.tight_layout()
     print("saves!")
     plt.savefig('graphs/{}.pdf'.format(subredditFile))
-    plt.show()
+    #plt.show()
 
+
+def save_result():
+    # Open the file in write mode
+    with open(f'./result/{subredditFile}.txt', 'w') as file:
+        # Loop through the first dictionary
+        for key, value in result.items():
+            # Write the key-value pair to the file in a formatted string
+            file.write(f"{key}: {value}\n")
+
+        # Write a newline character to the file
+        file.write("\n")
+
+        # Loop through the second dictionary
+        for key, value in subreddit_profanity_dict.items():
+            # Write the key to the file
+            file.write(f"{key}:\n")
+
+            # Loop through the nested dictionary
+            for nested_key, nested_value in value.items():
+                # Write the nested key-value pair to the file in a formatted string
+                file.write(f"\t{nested_key}: {nested_value}\n")
+
+            # Write a newline character to the file
+            file.write("\n")
 
 def main():
     reddit_read_only = praw.Reddit(
@@ -135,44 +159,50 @@ def main():
         client_secret="QS6aK093s1gRBjt6XvW6RQ4dSXaySA",     # your client secret
         user_agent="True")                                  # your user agent
 
-    subredditsList = create_subreddits_list()
     badWordsSet = create_bad_words_set()
-    #print(search(subredditsList, badWordsSet, reddit_read_only))
+    sub_folder = ["Alternative Reddits To League", "Childrens Games", "FPS Games", "MMORPG Games", "Moba Games", "Mobile Games", "Most Popular Games", \
+                  "No Gaming Related", "Single Player Games", "Strategy Games", "Survival Games"]
+    global subredditFile
 
-    #graph("test", 20, 10, "50%")
+    for sub in sub_folder:
+        global result
+        result = {}
+        global subreddit_profanity_dict
+        subreddit_profanity_dict = {}
+        subredditFile = sub
+        subredditsList = create_subreddits_list()
 
-    #init values
-    i = 0
-    threads = []
-    statusThreads = []
-    for subreddit in subredditsList:
-        
+        #init values
+        i = 1
+        threads = []
+        statusThreads = []
+        for subreddit in subredditsList:
+            
+            t = threading.Thread(target=search, args=(subreddit, badWordsSet, reddit_read_only))
+            status_thread = threading.Thread(target=checkThread, args=([t, MoonSpinner("Thread nr " + str(i) + ": ")]))
 
-        t = threading.Thread(target=search, args=(subreddit, badWordsSet, reddit_read_only))
-        status_thread = threading.Thread(target=checkThread, args=([t, i, MoonSpinner("Thread nr " + str(i) + ": ")]))
+            threads.append(t)
+            statusThreads.append(status_thread)
+            
+            t.start()
+            status_thread.start()
 
-        threads.append(t)
-        statusThreads.append(status_thread)
-        
-        t.start()
-        status_thread.start()
+            i +=1
 
-        i +=1
+        #close all threads 
+        for t in threads:
+            t.join()
+        for t in statusThreads:
+            t.join()    
 
-    print(subreddit_profanity_dict)
 
-    #close all threads 
-    for t in threads:
-        t.join()
-    for t in statusThreads:
-        t.join()    
-
-   
-    print(result)
-    print(subreddit_profanity_dict)
-    generate_bar_graph()
     
-    print("Program complete!")
+        print(result)
+        print(subreddit_profanity_dict)
+        save_result()
+        generate_bar_graph()
+        
+        print("Program complete!")
 
 
 if __name__ == "__main__":

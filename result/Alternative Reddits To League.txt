@@ -1,0 +1,65 @@
+LeagueofLegendsMeta: (41, 4, '9%')
+TeemoTalk: (120, 8, '6%')
+GarenMains: (167, 9, '5%')
+ARAM: (370, 32, '8%')
+LeagueOfMemes: (520, 31, '5%')
+
+LeagueofLegendsMeta:
+	shit: 1
+	piss: 1
+	damn: 1
+	fucking: 1
+
+TeemoTalk:
+	suck: 2
+	crap: 1
+	dumb: 1
+	stroking: 1
+	penetration: 1
+	fucks: 1
+	shit: 1
+
+GarenMains:
+	period: 1
+	damn: 1
+	shat: 1
+	penetration: 1
+	ass: 1
+	shit: 1
+	stupid: 1
+	fucked: 1
+	fuck: 1
+
+ARAM:
+	ass: 5
+	suicide: 1
+	fucking: 5
+	piss: 1
+	shitty: 2
+	fat: 1
+	fuck: 4
+	cancer: 1
+	balls: 1
+	damn: 1
+	fucked: 1
+	shitter: 1
+	crap: 1
+	shit: 3
+	stupid: 2
+	period: 1
+	dumb: 1
+
+LeagueOfMemes:
+	porn: 2
+	fuck: 5
+	crap: 3
+	fucking: 6
+	shit: 7
+	stupid: 2
+	shitty: 1
+	dumb: 1
+	dumbass: 1
+	suicide: 1
+	period: 1
+	fucked: 1
+

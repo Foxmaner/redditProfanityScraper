@@ -1,0 +1,118 @@
+Minecraft: (683, 10, '1%')
+GrandTheftAutoV: (35, 1, '2%')
+apexlegends: (1606, 145, '9%')
+leagueoflegends: (2810, 173, '6%')
+VALORANT: (1968, 30, '1%')
+
+Minecraft:
+	shit: 3
+	fucking: 1
+	pot: 1
+	fat: 1
+	chin: 1
+	fuck: 1
+	stupid: 1
+	spit: 1
+
+GrandTheftAutoV:
+	crap: 1
+
+apexlegends:
+	fuck: 11
+	fucked: 4
+	shit: 27
+	ass: 3
+	fucking: 15
+	suck: 7
+	damn: 10
+	laid: 2
+	bitch: 7
+	buried: 1
+	shitty: 13
+	crappy: 4
+	dumb: 3
+	shitting: 5
+	stupid: 7
+	blow: 2
+	crap: 3
+	bullshit: 2
+	spit: 1
+	minority: 2
+	murder: 1
+	assholes: 2
+	suicide: 1
+	jeez: 1
+	shite: 1
+	idiot: 1
+	bitching: 2
+	arse: 1
+	gross: 1
+	dick: 2
+	queef: 1
+	shag: 1
+	sexual: 1
+
+leagueoflegends:
+	fuck: 11
+	bong: 10
+	dumb: 3
+	shit: 47
+	fucking: 18
+	nasty: 3
+	swallow: 1
+	dong: 1
+	damn: 7
+	shits: 2
+	murder: 1
+	fraud: 1
+	shitter: 1
+	lingerie: 2
+	suicide: 1
+	snatch: 1
+	killer: 2
+	stupid: 7
+	blow: 2
+	loser: 3
+	shitting: 3
+	minority: 1
+	ass: 4
+	boner: 1
+	suck: 1
+	fat: 1
+	dumbass: 1
+	poop: 1
+	cocky: 1
+	asshole: 2
+	fucked: 5
+	smack: 2
+	balls: 1
+	crap: 1
+	dick: 1
+	premature: 1
+	piss: 1
+	racist: 7
+	gross: 1
+	shitty: 6
+	communist: 1
+	spit: 1
+	stroke: 1
+	retarded: 1
+	bitch: 1
+	poverty: 2
+
+VALORANT:
+	shit: 7
+	stupid: 1
+	period: 5
+	shits: 1
+	pimp: 1
+	ass: 1
+	christ: 1
+	loser: 1
+	fuck: 2
+	dumb: 3
+	fucking: 3
+	nasty: 1
+	damn: 2
+	dumbass: 1
+

@@ -1,0 +1,131 @@
+Heroesofthestorm: (208, 6, '2%')
+HeroesofNewerth: (191, 21, '10%')
+Smite: (315, 20, '6%')
+DotA2: (1980, 172, '8%')
+leagueoflegends: (2778, 169, '6%')
+
+Heroesofthestorm:
+	idiot: 2
+	killer: 1
+	fucking: 1
+	period: 1
+	suck: 1
+
+HeroesofNewerth:
+	bullshit: 1
+	damn: 1
+	fucked: 2
+	dumb: 1
+	fucking: 2
+	period: 1
+	shithead: 1
+	shit: 6
+	stupid: 2
+	jackass: 1
+	loser: 1
+	shitty: 1
+	jackshit: 1
+
+Smite:
+	nasty: 2
+	blow: 1
+	ass: 4
+	balls: 1
+	shitting: 1
+	shitty: 1
+	shit: 2
+	fuck: 2
+	fat: 1
+	idiot: 1
+	fucking: 2
+	dumb: 1
+	pot: 1
+
+DotA2:
+	damn: 9
+	shit: 35
+	fucking: 33
+	piss: 1
+	ass: 5
+	stupid: 8
+	motherfucker: 1
+	fucks: 1
+	pot: 1
+	fuck: 15
+	crack: 1
+	cancer: 6
+	shitting: 1
+	necro: 4
+	shitty: 2
+	christ: 2
+	fucked: 6
+	fucker: 1
+	cocky: 1
+	moron: 1
+	murder: 2
+	dick: 2
+	bullshit: 2
+	dumb: 9
+	crap: 1
+	suck: 4
+	gay: 1
+	heroin: 1
+	loser: 1
+	devil: 1
+	goddamn: 2
+	dumbfuck: 1
+	suicide: 5
+	balls: 2
+	bitch: 1
+	idiot: 1
+	blow: 1
+	stroke: 1
+
+leagueoflegends:
+	fuck: 11
+	bong: 10
+	dumb: 3
+	shit: 45
+	fucking: 18
+	nasty: 3
+	swallow: 1
+	dong: 1
+	damn: 6
+	shits: 2
+	murder: 1
+	fraud: 1
+	shitter: 1
+	lingerie: 2
+	suicide: 1
+	snatch: 1
+	killer: 2
+	stupid: 7
+	blow: 2
+	loser: 3
+	shitting: 3
+	minority: 1
+	ass: 4
+	boner: 1
+	suck: 1
+	fat: 1
+	dumbass: 1
+	poop: 1
+	cocky: 1
+	asshole: 2
+	fucked: 5
+	smack: 2
+	balls: 1
+	crap: 1
+	dick: 1
+	premature: 1
+	piss: 1
+	racist: 6
+	gross: 1
+	shitty: 6
+	communist: 1
+	spit: 1
+	stroke: 1
+	retarded: 1
+	bitch: 1
+	poverty: 2
+

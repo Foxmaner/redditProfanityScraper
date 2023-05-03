@@ -1,0 +1,66 @@
+anno1800: (107, 6, '5%')
+hoi4: (534, 42, '7%')
+wargame: (82, 4, '4%')
+civ: (474, 14, '2%')
+eu4: (935, 35, '3%')
+
+anno1800:
+	blow: 1
+	crack: 1
+	stupid: 1
+	ass: 1
+	reefer: 1
+	laid: 1
+
+hoi4:
+	shitty: 3
+	stupid: 1
+	communist: 4
+	bombers: 17
+	crap: 1
+	fuck: 3
+	shit: 3
+	idiot: 1
+	cancer: 1
+	ass: 3
+	penetration: 1
+	joint: 1
+	commie: 1
+	meth: 1
+	crack: 1
+
+wargame:
+	fucking: 1
+	fuck: 1
+	shit: 2
+
+civ:
+	pot: 1
+	stupid: 2
+	fucking: 2
+	fat: 1
+	shit: 3
+	fuck: 1
+	killer: 1
+	dumb: 2
+	butt: 1
+
+eu4:
+	dumb: 3
+	arse: 1
+	loser: 1
+	stupid: 3
+	crack: 1
+	blow: 1
+	fuck: 7
+	poop: 1
+	virgin: 1
+	shit: 5
+	ass: 1
+	period: 2
+	fucking: 4
+	fucker: 1
+	suicide: 1
+	joint: 1
+	bullshit: 1
+

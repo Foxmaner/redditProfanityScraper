@@ -1,0 +1,101 @@
+cute: (180, 12, '6%')
+bearsdoinghumanthings: (132, 6, '4%')
+food: (354, 12, '3%')
+sports: (953, 113, '11%')
+StockMarket: (706, 62, '8%')
+
+cute:
+	cocaine: 3
+	crap: 1
+	meth: 1
+	crack: 1
+	balls: 1
+	shit: 2
+	stroke: 1
+	damn: 2
+
+bearsdoinghumanthings:
+	crap: 1
+	ass: 1
+	balls: 1
+	fucks: 2
+	stupid: 1
+
+food:
+	spit: 1
+	fat: 2
+	fuck: 2
+	shitting: 1
+	piss: 1
+	shat: 1
+	shit: 1
+	fucking: 1
+	stupid: 1
+	damn: 1
+
+sports:
+	fucking: 10
+	gross: 1
+	fuck: 14
+	suck: 2
+	devil: 1
+	suicide: 2
+	moron: 2
+	stupid: 4
+	fuckers: 1
+	fucked: 5
+	ass: 8
+	shit: 28
+	gangsta: 1
+	asses: 1
+	piss: 3
+	swallow: 1
+	asshole: 2
+	fuckin: 1
+	dumb: 2
+	shitty: 2
+	damn: 3
+	bitch: 1
+	shitting: 2
+	idiot: 2
+	chin: 1
+	bitching: 1
+	dick: 1
+	crap: 1
+	balls: 1
+	murder: 4
+	hookers: 1
+	drunken: 1
+	dumbass: 1
+	drug: 2
+
+StockMarket:
+	naked: 2
+	idiot: 1
+	fucked: 1
+	fraud: 1
+	stupid: 6
+	turd: 2
+	fuck: 3
+	fucking: 8
+	shit: 9
+	jackass: 1
+	suck: 4
+	fucks: 1
+	biatch: 1
+	bra: 1
+	laid: 2
+	hostage: 4
+	goddamn: 1
+	period: 4
+	ass: 1
+	drunken: 1
+	pimp: 1
+	tits: 1
+	blow: 1
+	sex: 1
+	buried: 1
+	fat: 1
+	teat: 1
+	piss: 1
+

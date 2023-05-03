@@ -1,0 +1,60 @@
+AmongUs: (93, 1, '1%')
+StarStable: (152, 8, '5%')
+fortnite: (182, 7, '3%')
+Minecraft: (754, 51, '6%')
+roblox: (732, 38, '5%')
+
+AmongUs:
+	stupid: 1
+
+StarStable:
+	shit: 1
+	fuck: 1
+	fucked: 3
+	horseshit: 1
+	damn: 1
+	poop: 1
+
+fortnite:
+	suck: 2
+	blow: 1
+	damn: 1
+	ass: 1
+	fucking: 1
+	shit: 1
+
+Minecraft:
+	shit: 3
+	fucking: 30
+	pot: 1
+	fat: 1
+	chin: 1
+	fuck: 5
+	motherfucking: 1
+	fuckin: 1
+	brothel: 1
+	goddamn: 1
+	stupid: 1
+	sex: 3
+	fucks: 2
+
+roblox:
+	banging: 1
+	shitty: 1
+	stupid: 3
+	shits: 1
+	ass: 3
+	damn: 1
+	fucked: 2
+	shit: 9
+	cancer: 1
+	suck: 4
+	fucking: 4
+	dumb: 2
+	pussy: 1
+	shitted: 1
+	fuck: 1
+	shitting: 1
+	idiot: 1
+	balls: 1
+

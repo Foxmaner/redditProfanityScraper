@@ -1,0 +1,56 @@
+candycrush: (44, 0, '0%')
+angrybirds: (319, 6, '1%')
+RaidShadowLegends: (352, 18, '5%')
+wildrift: (450, 40, '8%')
+ClashOfClans: (857, 15, '1%')
+
+candycrush:
+
+angrybirds:
+	ass: 1
+	retarded: 1
+	butt: 2
+	fat: 2
+
+RaidShadowLegends:
+	balls: 2
+	shit: 3
+	devil: 1
+	crap: 2
+	stupid: 3
+	crack: 1
+	blow: 1
+	bullshit: 1
+	ass: 1
+	damn: 1
+	fucking: 1
+	fuck: 1
+
+wildrift:
+	dumb: 9
+	fat: 2
+	shit: 8
+	shitty: 1
+	balls: 1
+	bullshit: 1
+	stupid: 4
+	ass: 3
+	fucking: 1
+	fuck: 6
+	piss: 1
+	snatch: 1
+	damnit: 1
+	fuckin: 1
+
+ClashOfClans:
+	idiot: 1
+	fuck: 3
+	stupid: 2
+	dumb: 3
+	ass: 1
+	fucks: 1
+	fucking: 1
+	damn: 1
+	stroke: 1
+	poop: 1
+
