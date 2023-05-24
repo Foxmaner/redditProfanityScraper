@@ -155,8 +155,8 @@ def save_result():
 
 def main():
     reddit_read_only = praw.Reddit(
-        client_id="jHaMZuAi8kiEX9erg6yH_w",              # your client id
-        client_secret="QS6aK093s1gRBjt6XvW6RQ4dSXaySA",     # your client secret
+        client_id="",              # your client id
+        client_secret="",     # your client secret
         user_agent="True")                                  # your user agent
 
     badWordsSet = create_bad_words_set()
